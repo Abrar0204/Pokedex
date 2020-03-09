@@ -33,7 +33,7 @@ body {
 
 .mainScreen {
 	background-color: #e7e7e7;
-	height: 70vh;
+	height: 50rem;
 	margin: 5rem;
 	padding: 3rem;
 	clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 3.5% 100%, 0% 90%);
@@ -42,7 +42,7 @@ body {
 		margin: 5rem 1rem;
 	}
 	.displayScreen {
-		height: 60vh;
+		height: 45rem;
 		background-color: #2d3035;
 		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 3% 100%, 0% 90%);
 		overflow: auto;

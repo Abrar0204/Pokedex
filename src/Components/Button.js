@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { PokemonContext } from '../Data/PokemonContext';
 const Button = ({ name }) => {
 	const { pokemonCont, loadingCont } = useContext(PokemonContext);
-	const [ setPokemon ] = pokemonCont;
-	const [ setLoading ] = loadingCont;
+	const [ pokemon, setPokemon ] = pokemonCont;
+	const [ loading, setLoading ] = loadingCont;
 
 	const filterType = async (e) => {
 		setLoading(true);
