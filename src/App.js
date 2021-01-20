@@ -1,19 +1,12 @@
 import React from 'react';
-import './App.css';
-import Navbar from './Components/Navbar';
-import Screen from './Components/Screen';
-import SearchBar from './Components/SearchBar';
-import ButtonPad from './Components/ButtonPad';
+import Main from './Components/Main';
 import { PokemonProvider } from './Data/PokemonContext';
 
 function App() {
 	return (
-		<div>
+		<div className="App">
 			<PokemonProvider>
-				<Navbar />
-				<Screen />
-				<SearchBar />
-				<ButtonPad />
+				<Main />
 			</PokemonProvider>
 		</div>
 	);

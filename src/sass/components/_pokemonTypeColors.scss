@@ -1,0 +1,187 @@
+.Fire {
+	background-color: $fireColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $fireColor, #a10000);
+	}
+	&-outline {
+		border: 2px solid $fireColor;
+		background-color: $fireColor;
+	}
+}
+
+.Grass {
+	background-color: $grassColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $grassColor, #3cb500);
+	}
+	&-outline {
+		border: 2px solid $grassColor;
+		background-color: $grassColor;
+	}
+}
+.Water {
+	background-color: $waterColor;
+
+	&.gradient {
+		background: linear-gradient(to bottom right, $waterColor, #006ccf);
+	}
+	&-outline {
+		border: 2px solid $waterColor;
+		background-color: $waterColor;
+	}
+}
+.Electric {
+	background-color: $electricColor;
+
+	&.gradient {
+		background: linear-gradient(to bottom right, $electricColor, #c79100);
+	}
+	&-outline {
+		border: 2px solid $electricColor;
+		background-color: $electricColor;
+	}
+}
+.Ice {
+	background-color: $iceColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $iceColor, #009090);
+	}
+	&-outline {
+		border: 2px solid $iceColor;
+		background-color: $iceColor;
+	}
+}
+.Ghost {
+	background-color: $ghostColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $ghostColor, #200056);
+	}
+	&-outline {
+		border: 2px solid $ghostColor;
+		background-color: $ghostColor;
+	}
+}
+.Normal {
+	background-color: $normalColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $normalColor, #707000);
+	}
+	&-outline {
+		border: 2px solid $normalColor;
+		background-color: $normalColor;
+	}
+}
+.Ground {
+	background-color: $groundColor;
+
+	&.gradient {
+		background: linear-gradient(to bottom right, $groundColor, #976f00);
+	}
+	&-outline {
+		border: 2px solid $groundColor;
+		background-color: $groundColor;
+	}
+}
+.Psychic {
+	background-color: $psychicColor;
+
+	&.gradient {
+		background: linear-gradient(to bottom right, $psychicColor, #860000);
+	}
+	&-outline {
+		border: 2px solid $psychicColor;
+		background-color: $psychicColor;
+	}
+}
+.Dragon {
+	background-color: $dragonColor;
+
+	&.gradient {
+		background: linear-gradient(to bottom right, $dragonColor, #3e10ac);
+	}
+	&-outline {
+		border: 2px solid $dragonColor;
+		background-color: $dragonColor;
+	}
+}
+.Rock {
+	background-color: $rockColor;
+
+	&.gradient {
+		background: linear-gradient(to bottom right, $rockColor, #7e6700);
+	}
+	&-outline {
+		border: 2px solid $rockColor;
+		background-color: $rockColor;
+	}
+}
+.Fighting {
+	background-color: $fightingColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $fightingColor, #821c16);
+	}
+	&-outline {
+		border: 2px solid $fightingColor;
+		background-color: $fightingColor;
+	}
+}
+.Fairy {
+	background-color: $fairyColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $fairyColor, #aa2744);
+	}
+	&-outline {
+		border: 2px solid $fairyColor;
+		background-color: $fairyColor;
+	}
+}
+.Poison {
+	background-color: $poisonColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $poisonColor, #720072);
+	}
+	&-outline {
+		border: 2px solid $poisonColor;
+		background-color: $poisonColor;
+	}
+}
+.Bug {
+	background-color: $bugColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $bugColor, #738100);
+	}
+	&-outline {
+		border: 2px solid $bugColor;
+		background-color: $bugColor;
+	}
+}
+.Dark {
+	background-color: $darkColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, #457162, $darkColor);
+	}
+	&-outline {
+		border: 2px solid $darkColor;
+		background-color: $darkColor;
+	}
+}
+.Flying {
+	background-color: $flyingColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $flyingColor, #003660);
+	}
+	&-outline {
+		border: 2px solid $flyingColor;
+		background-color: $flyingColor;
+	}
+}
+.Steel {
+	background-color: $steelColor;
+	&.gradient {
+		background: linear-gradient(to bottom right, $steelColor, #0d4933);
+	}
+	&-outline {
+		border: 2px solid $steelColor;
+		background-color: $steelColor;
+	}
+}

@@ -1,0 +1,53 @@
+.loader {
+	width: 100%;
+	height: 50vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&-title {
+		font-size: 3rem;
+		color: $secondaryColor;
+	}
+	.bouncer {
+		height: 10rem;
+		width: 15rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		& div {
+			height: 50px;
+			width: 50px;
+			// border-radius: 50%;
+			// background-color: $secondaryColor;
+			animation: bounce .5s ease-out infinite alternate;
+			& img {
+				height: auto;
+				width: 100%;
+			}
+
+			&:nth-child(2) {
+				animation-delay: .1s;
+				opacity: .8;
+			}
+			&:nth-child(3) {
+				animation-delay: .2s;
+				opacity: .4;
+			}
+			&:nth-child(4) {
+				animation-delay: .3s;
+				opacity: .2;
+			}
+		}
+	}
+}
+
+@keyframes bounce {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-100px);
+	}
+}
