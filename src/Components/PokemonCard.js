@@ -1,12 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { PokemonContext } from '../Data/PokemonContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { hideCard } from '../actions/pokemonActions';
 
 const PokemonCard = () => {
-	const { pokemonCardHidden, selectedPokemonData } = useContext(PokemonContext);
-	const [ cardHidden, setCardHidden ] = pokemonCardHidden;
-	const [ selectedPokemon, setSelectedPokemon ] = selectedPokemonData;
+	const dispatch = useDispatch();
+
+	const selectedPokemonDetails = useSelector((state) => state.selectedPokemonDetails);
+	const cardHidden = useSelector((state) => state.cardHidden);
+
+	const { selectedPokemon } = selectedPokemonDetails;
+	const { hidden } = cardHidden;
+
 	const pokemon = selectedPokemon || {};
+
 	const capitalize = (string = '') => {
 		return `${string[0].toUpperCase()}${string.slice(1)}`;
 	};
@@ -18,14 +25,13 @@ const PokemonCard = () => {
 		return (weight * 2.2).toFixed(2);
 	};
 
-	// console.log(pokemon);
 	return (
 		Object.keys(pokemon).length !== 0 && (
-			<div className={`pokemon-card ${pokemon.types[0]} gradient ${cardHidden ? 'hidden' : 'open'}`}>
+			<div className={`pokemon-card ${pokemon.types[0]} gradient ${hidden ? 'hidden' : 'open'}`}>
 				<div
 					className="exit-button"
 					onClick={() => {
-						setCardHidden(true);
+						dispatch(hideCard(!hidden));
 					}}
 				>
 					<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">

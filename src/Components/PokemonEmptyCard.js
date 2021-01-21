@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
-import { PokemonContext } from '../Data/PokemonContext';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 const PokemonEmptyCard = () => {
-	const { pokemonCardHidden } = useContext(PokemonContext);
-	const [ cardHidden, setCardHidden ] = pokemonCardHidden;
+	const cardHidden = useSelector((state) => state.cardHidden);
+	const { hidden } = cardHidden;
+
 	return (
-		<div className={`pokemon-card empty ${cardHidden ? 'hidden' : 'open'}`}>
+		<div className={`pokemon-card empty ${hidden ? 'hidden' : 'open'}`}>
 			<svg viewBox="0 0 769 989" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<g id="Pokeball">
 					<g id="Pokeball_svg">

@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({ error }) => {
 	return (
 		<header className="header">
-			<p className="header-text">Pokedex</p>
+			<p className="header-text">Pokedex {error}</p>
 		</header>
 	);
 };

@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
-import { PokemonContext } from '../Data/PokemonContext';
+import React from 'react';
+import { getSelectedPokemon, hideCard } from '../actions/pokemonActions';
+import { useDispatch } from 'react-redux';
 
 const Pokemon = ({ pokemon }) => {
-	const { selectedPokemonData, pokemonCardHidden } = useContext(PokemonContext);
-	const [ selectedPokemon, setSelectedPokemon ] = selectedPokemonData;
-	const [ cardHidden, setCardHidden ] = pokemonCardHidden;
+	const dispatch = useDispatch();
 
 	const setPokemonData = () => {
-		setSelectedPokemon(pokemon);
-		setCardHidden(false);
+		dispatch(getSelectedPokemon(pokemon));
+		// setSelectedPokemon(pokemon);
+		dispatch(hideCard(false));
 	};
 
 	return (

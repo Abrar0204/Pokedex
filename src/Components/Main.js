@@ -1,93 +1,36 @@
-import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
-import { PokemonContext } from '../Data/PokemonContext';
-import Pokemon from '../Data/Pokemon';
+import React, { useEffect } from 'react';
 import PokemonContainer from './PokemonContainer';
 import Header from './Header';
 import Loader from './Loader';
 import PokemonCard from './PokemonCard';
 import PokemonEmptyCard from './PokemonEmptyCard';
+import store from '../store';
+import { getPokemons, getSelectedPokemon } from '../actions/pokemonActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Main = () => {
-	const { pokemonsData, selectedPokemonData } = useContext(PokemonContext);
+	const dispatch = useDispatch();
 
-	const [ pokemons, setPokemons ] = pokemonsData;
-	const [ selectedPokemon, setSelectedPokemon ] = selectedPokemonData;
+	const pokemonsDetails = useSelector((state) => state.pokemonList);
 
-	const [ loading, setLoading ] = useState(true);
-
-	const capitalize = (string = '') => {
-		return `${string[0].toUpperCase()}${string.slice(1)}`;
-	};
+	const { pokemons, error, loading } = pokemonsDetails;
 
 	useEffect(
 		() => {
 			const fetchData = async () => {
-				setLoading(true);
-				const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=400');
-				const pokemonsDataUrl = data.results;
-				const tempPokemons = await Promise.all(
-					pokemonsDataUrl.map(async (pokemonUrl) => {
-						const { data } = await axios.get(pokemonUrl.url);
-						const pokemonTypes = [];
-						data.types.forEach((type) => {
-							pokemonTypes.push(capitalize(type.type.name));
-						});
-						const pokemonData = new Pokemon(
-							data.id,
-							capitalize(data.name),
-							data.height / 10,
-							data.weight / 10,
-							data.sprites['front_default'] ||
-								data.sprites['other']['official-artwork']['front_default'] ||
-								'',
-							pokemonTypes,
-							data.stats,
-							data.abilities
-						);
-						return pokemonData;
-					})
-				);
-				setPokemons(tempPokemons);
-				setSelectedPokemon(tempPokemons[0]);
-				// fetchAllData();
-				setLoading(false);
+				dispatch(getPokemons()).then(() => {
+					const { pokemonList } = store.getState();
+					dispatch(getSelectedPokemon(pokemonList.pokemons[0]));
+				});
 			};
-			// const fetchAllData = async () => {
-			// 	const { data } = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=1118');
-			// 	const pokemonsDataUrl = data.results;
-			// 	const tempPokemons = await Promise.all(
-			// 		pokemonsDataUrl.map(async (pokemonUrl) => {
-			// 			const { data } = await axios.get(pokemonUrl.url);
-			// 			const pokemonTypes = [];
-			// 			data.types.forEach((type) => {
-			// 				pokemonTypes.push(capitalize(type.type.name));
-			// 			});
-			// 			const pokemonData = new Pokemon(
-			// 				data.id,
-			// 				capitalize(data.name),
-			// 				data.height / 10,
-			// 				data.weight / 10,
-			// 				data.sprites['front_default'] ||
-			// 					data.sprites['other']['official-artwork']['front_default'] ||
-			// 					'',
-			// 				pokemonTypes,
-			// 				data.stats,
-			// 				data.abilities
-			// 			);
-			// 			return pokemonData;
-			// 		})
-			// 	);
-			// 	setPokemons(tempPokemons);
-			// };
 			fetchData();
 		},
-		[ setPokemons, setSelectedPokemon ]
+		[ dispatch ]
 	);
 
 	return (
 		<div className="main" id="main">
-			<Header />
+			<Header error={error} />
 			{loading ? <Loader /> : <PokemonContainer pokemons={pokemons} />}
 			<div className="pokeball-svg">
 				<svg viewBox="0 0 732 734" fill="none" xmlns="http://www.w3.org/2000/svg">
